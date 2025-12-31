@@ -130,3 +130,66 @@ print(array12.reshape(3,4))
  [18 19 20 21]]
 """
 
+# Splitting Arrays
+
+array13 = np.array([[10,-7,0,20],[-5,1,200,40],[30,1,-1,4],[1,2,0,4],[0,1,0,2]])
+
+first,second,third = np.split(array13,[1,3])
+
+print(first)
+
+# Statistical Opertion on Arrays
+
+# max()
+
+arrayA = np.array([1,0,2,-3,6,8,4,7])
+
+print(arrayA.max())
+print(arrayA.min())
+print(arrayA.sum())
+print(arrayA.mean())
+print(arrayA.std())
+print(arrayA.std(axis=0))
+
+"""
+8
+-3
+25
+3.125
+3.550968177835448  
+3.550968177835448
+"""
+
+# Loading Array from Files
+
+# NumPy.loadtxt()
+
+studentdata = np.loadtxt('C:/NCERT/data.txt',skiprows=1,delimiter=',',dtype=int)
+
+print(studentdata)
+
+"""
+[[ 1, 36, 18, 57],
+[ 2, 22, 23, 45],
+[ 3, 43, 51, 37],
+[ 4, 41, 40, 60],
+[ 5, 13, 18, 27]]
+"""
+
+rollno,mks1,mks2,mks3 = np.loadtxt('C:/NCERT/data.txt',skiprows=1,delimiter=',',unpack=True,dtype=int)
+
+# NumPy.genfromtxt()
+
+dataarray = np.genfromtxt('C:/NCERT/dataMissing.txt',skip_header=1,delimiter = ',')
+
+"""
+([[ 1., 36., 18., 57.],
+[ 2., nan, 23., 45.],
+[ 3., 43., 51., nan],
+[ 4., 41., 40., 60.],
+[ 5., 13., 18., 27.]]
+"""
+
+# Saving Numpy Arrays in Files on Disk
+
+np.savetxt('C:/NCERT/testout.txt',studentdata,delimeter=',',fmt='%i')
